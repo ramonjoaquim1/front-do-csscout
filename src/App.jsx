@@ -6,16 +6,17 @@ import './App.css';
 function App() {
 
   // Objeto produto
-  const produto = {
+ // const produto = {
+const produtoInicial = {
     codigo : 0,
     nome : '',
     marca : ''
   }
 
-  //UseState  
+  //UseState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
   const [produtos, setProdutos] = useState([]);
-  const [objProduto, setObjProduto] = useState(produto);
+  const [objProduto, setObjProduto] = useState(produtoInicial);
 
   //UseEffect
 useEffect(()=>{
@@ -41,7 +42,7 @@ useEffect(()=>{
     })
     .then(retorno => retorno.json())
     .then(retorno_convertido => {
-     if(retorno_convertido.mensagem !== undefined){
+if(retorno_convertido.mensagem !== undefined){
       alert(retorno_convertido.mensagem);
       }else{
         setProdutos([...produtos, retorno_convertido]);
@@ -52,65 +53,61 @@ useEffect(()=>{
     })
   }
 
-    //Alterar produto
-  const alterar = () => {
-    fetch('http://localhost:8080/cadastrar',{
-      method:'put',
-      body:JSON.stringify(objProduto),
-      headers:{
-        'Content-type':'application/json',
-        'Accept':'application/json'
-      }
-    })
-    .then(retorno => retorno.json())
-    .then(retorno_convertido => {
-     if(retorno_convertido.mensagem !== undefined){
+   // Alterar produto
+const alterar = () => {
+  fetch(`http://localhost:8080/alterar/${objProduto.codigo}`, {
+    method: 'put',
+    body: JSON.stringify({ nome: objProduto.nome, marca: objProduto.marca }),
+    headers: {
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(retorno => retorno.json())
+  .then(retorno_convertido => {
+    if (retorno_convertido.mensagem !== undefined) {
       alert(retorno_convertido.mensagem);
-      }else{
-        
-        //Mensagem
-        alert('Produto alterado com sucesso');
+    } else {
+      // Mensagem triunfal!
+      alert('Produto alterado com sucesso! 🚀');
 
-      //Cópia do vetor de produtos
+      // Cópia do vetor de produtos
       let vetorTemp = [...produtos];
 
-      //Índice
-      let indice = vetorTemp.findIndex((p) => {
-        return p.codigo === objProduto.codigo;
-      });
+      let indice = vetorTemp.findIndex((p) => p.codigo === objProduto.codigo);
 
-      // Alterar produto do vetorTemp
-      vetorTemp[indice] = objProduto;
-      
-      // Atualizar o vetor de produtos
-      setProdutos(vetorTemp);
+          vetorTemp[indice].nome = objProduto.nome;
+          vetorTemp[indice].marca = objProduto.marca;
 
-      // Limpar o formulário
-        limparFormulario();
-      }
-
-    })
+          setProdutos(vetorTemp);
+          limparFormulario();
+        }
+      })
   }
 
-//Remover produto
-  const remover = () => {
-    fetch('http://localhost:8080/remover'+objProduto.codigo,{
-      method:'delete',
-      headers:{
-        'Content-type':'application/json',
-        'Accept':'application/json'
-      }
-    })
-    .then(retorno => retorno.json())
-    .then(retorno_convertido => {
 
-      // Mensagem
-      alert(retorno_convertido.mensagem);
 
-      //Cópia do vetor de produtos
+
+
+// Remover produto
+const remover = () => {
+  fetch(`http://localhost:8080/remover/${objProduto.codigo}`, {
+    method: 'delete',
+    headers: {
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(retorno => retorno.json())
+  .then(retorno_convertido => {
+    // Mensagem
+    alert(retorno_convertido.mensagem);
+
+    if (!retorno_convertido.erro) {
+      // Cópia do vetor de produtos
       let vetorTemp = [...produtos];
 
-      //Índice
+      // Índice
       let indice = vetorTemp.findIndex((p) => {
         return p.codigo === objProduto.codigo;
       });
@@ -121,11 +118,12 @@ useEffect(()=>{
       // Atualizar o vetor de produtos
       setProdutos(vetorTemp);
 
-// Limpar formúlario
-limparFormulario();
+      // Limpar formulário
+      limparFormulario();
+    }
+  })
+}
 
-    })
-  }
 
 //Limpar formulario
 const limparFormulario = () => {
