@@ -1,5 +1,7 @@
 # CSscout Front-End
 
+Projeto Front-End do CS Scout: https://github.com/ramonjoaquim1/csscout
+
 React + Vite
 
 Este modelo fornece uma configuração mínima para fazer o React funcionar no Vite com HMR e algumas regras ESLint.
