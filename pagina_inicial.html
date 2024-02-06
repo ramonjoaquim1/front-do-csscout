@@ -2,8 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-        <link rel="icon" type="image/svg+xml" href="/unnamed.webp" />
-
+    <link rel="icon" type="image/svg+xml" href="/unnamed.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS Scout - Página Inicial</title>
     <!-- Adicione links para o Bootstrap -->
@@ -30,7 +29,12 @@
             color: white;
             padding: 10px 0;
             text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
+
+
     </style>
 </head>
 <body>
@@ -47,8 +51,8 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#search">Barra de Pesquisa</a></li>
                         <li class="nav-item"><a class="nav-link" href="#rankings">Rankings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#times">Ver Equipes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#votacao">Votação</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#times">Ver Equipes</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,13 +80,12 @@
             <p>Crie e gerencie times amadores de CS.</p>
             <!-- Adicione formulários para criação de times conforme descrito na documentação -->
         </div>
-
     </section>
 
     <!-- Footer -->
     <footer class="container-fluid mt-4">
-        <div class="container text-center">
-            <p>Contato | Sobre Nós | Políticas</p>
+        <div class="container">
+            <p class="text-left">Contato | Sobre Nós | Políticas</p>
         </div>
     </footer>
 
