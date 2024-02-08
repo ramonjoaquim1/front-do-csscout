@@ -34,7 +34,31 @@
             width: 100%;
         }
 
+        /* Estilo para as estatísticas do jogador */
+        .player-stats {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
 
+        .player-stats li {
+            margin-bottom: 5px;
+        }
+
+        /* Estilo para a seção de votação */
+        .voting-section {
+            margin-top: 50px;
+        }
+
+        /* Estilo para a seção de pontos corridos */
+        .points-section {
+            margin-top: 50px;
+        }
+
+        /* Estilo para a seção de criação de times */
+        .create-team-section {
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -50,14 +74,15 @@
                 <div class="collapse navbar-collapse" id="navbarNav">                
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#rankings">Rankings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#votacao">Votação</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#times">Ver Equipes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#votacao-jogador">Votar Melhor Jogador</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#votacao-jogada">Votar Melhor Jogada</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pontos-corridos">Pontos Corridos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#criar-time">Criar Time</a></li>
                         <form class="d-flex ms-auto">
-    <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-</form>
-
+                            <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                        </form>
                     </ul>
-                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -70,18 +95,91 @@
             Explore as funcionalidades oferecidas e participe da comunidade!
         </p>
 
-        <!-- Seção de Votação -->
-        <div id="votacao" class="mt-4">
-            <h2>Votação</h2>
-            <p>Vote no melhor jogador e na melhor jogada da semana.</p>
-            <!-- Adicione formulários de votação conforme descrito na documentação -->
+        <!-- Seção de Votação - Melhor Jogador da Semana -->
+        <div id="votacao-jogador" class="voting-section mt-4">
+            <h2>Votação - Melhor Jogador da Semana</h2>
+            <form>
+                <!-- Adicione campos para votação do melhor jogador -->
+                <label for="jogador">Escolha o melhor jogador:</label>
+                <select name="jogador" id="jogador">
+                    <option value="jogador1">Jogador 1</option>
+                    <option value="jogador2">Jogador 2</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+                <button type="submit" class="btn btn-primary">Votar</button>
+            </form>
         </div>
 
-        <!-- Seção de Times Amadores -->
-        <div id="times-amadores" class="mt-4">
-            <h2>Times Amadores</h2>
-            <p>Crie e gerencie times amadores de CS.</p>
-            <!-- Adicione formulários para criação de times conforme descrito na documentação -->
+        <!-- Seção de Votação - Melhor Jogada da Semana -->
+        <div id="votacao-jogada" class="voting-section mt-4">
+            <h2>Votação - Melhor Jogada da Semana</h2>
+            <form>
+                <!-- Adicione campos para votação da melhor jogada -->
+                <label for="jogada">Escolha a melhor jogada:</label>
+                <select name="jogada" id="jogada">
+                    <option value="jogada1">Jogada 1</option>
+                    <option value="jogada2">Jogada 2</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+                <button type="submit" class="btn btn-primary">Votar</button>
+            </form>
+        </div>
+
+        <!-- Seção de Pontos Corridos -->
+        <div id="pontos-corridos" class="points-section mt-4">
+            <h2>Pontos Corridos</h2>
+            <!-- Adicione a tabela de pontos corridos -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Posição</th>
+                        <th scope="col">Usuário</th>
+                        <th scope="col">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>User1</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>User2</td>
+                        <td>90</td>
+                    </tr>
+                    <!-- Adicione mais linhas conforme necessário -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção de Criação de Times -->
+        <div id="criar-time" class="create-team-section mt-4">
+            <h2>Criar Time</h2>
+            <form>
+                <!-- Adicione campos para criação de times -->
+                <div class="mb-3">
+                    <label for="logo" class="form-label">Logo do Time</label>
+                    <input type="file" class="form-control" id="logo">
+                </div>
+                <div class="mb-3">
+                    <label for="nome-time" class="form-label">Nome do Time</label>
+                    <input type="text" class="form-control" id="nome-time">
+                </div>
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="grito-guerra" class="form-label">Grito de Guerra</label>
+                    <input type="text" class="form-control" id="grito-guerra">
+                </div>
+                <div class="mb-3">
+                    <label for="jogadores" class="form-label">Nome dos Jogadores (máximo 100)</label>
+                    <textarea class="form-control" id="jogadores" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar Time</button>
+            </form>
         </div>
     </section>
 
