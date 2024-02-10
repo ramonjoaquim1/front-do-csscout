@@ -4,63 +4,12 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/unnamed.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Scout - Página Inicial</title>
+    <title>CS Scout - Votação</title>
     <!-- Adicione links para o Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Adicione aqui links para folhas de estilo personalizadas -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin-bottom: 60px; /* Altura do footer */
-            position: relative;
-        }
-
-        header {
-            background-color: #343a40;
-            color: white;
-            padding: 10px 0;
-        }
-
-        header a {
-            color: white;
-            margin-right: 15px;
-        }
-
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Estilo para as estatísticas do jogador */
-        .player-stats {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-
-        .player-stats li {
-            margin-bottom: 5px;
-        }
-
-        /* Estilo para a seção de votação */
-        .voting-section {
-            margin-top: 50px;
-        }
-
-        /* Estilo para a seção de pontos corridos */
-        .points-section {
-            margin-top: 50px;
-        }
-
-        /* Estilo para a seção de criação de times */
-        .create-team-section {
-            margin-top: 50px;
-        }
+        /* Adicione estilos personalizados aqui */
     </style>
 </head>
 <body>
@@ -79,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link" href="votacao.html">Votação</a></li>
                         <li class="nav-item"><a class="nav-link" href="melhoresjogadores.html">Jogadores da Semana</a></li>
                         <li class="nav-item"><a class="nav-link" href="melhoresjogadas.html">Melhores Jogadas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pontoscorrido.html">Pontos Corridos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pontoscorridos.html">Pontos Corridos</a></li>
                         <li class="nav-item"><a class="nav-link" href="criartime.html">Criar Time</a></li>
                         <form class="d-flex ms-auto">
                             <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
@@ -92,10 +41,9 @@
 
     <!-- Conteúdo -->
     <section class="container mt-4">
-        <h1>Bem-vindo ao CS Scout</h1>
+        <h1>Votação</h1>
         <p>
-            O CS Scout é um sistema web desenvolvido para entusiastas do jogo Counter-Strike (CS).
-            Explore as funcionalidades oferecidas e participe da comunidade!
+            Escolha o melhor jogador e a melhor jogada da semana e vote agora!
         </p>
 
         <!-- Seção de Votação - Melhor Jogador da Semana -->
@@ -125,63 +73,6 @@
                     <!-- Adicione mais opções conforme necessário -->
                 </select>
                 <button type="submit" class="btn btn-primary">Votar</button>
-            </form>
-        </div>
-
-        <!-- Seção de Pontos Corridos -->
-        <div id="pontos-corridos" class="points-section mt-4">
-            <h2>Pontos Corridos</h2>
-            <!-- Adicione a tabela de pontos corridos -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Posição</th>
-                        <th scope="col">Usuário</th>
-                        <th scope="col">Pontos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>User1</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>User2</td>
-                        <td>90</td>
-                    </tr>
-                    <!-- Adicione mais linhas conforme necessário -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Seção de Criação de Times -->
-        <div id="criar-time" class="create-team-section mt-4">
-            <h2>Criar Time</h2>
-            <form>
-                <!-- Adicione campos para criação de times -->
-                <div class="mb-3">
-                    <label for="logo" class="form-label">Logo do Time</label>
-                    <input type="file" class="form-control" id="logo">
-                </div>
-                <div class="mb-3">
-                    <label for="nome-time" class="form-label">Nome do Time</label>
-                    <input type="text" class="form-control" id="nome-time">
-                </div>
-                <div class="mb-3">
-                    <label for="descricao" class="form-label">Descrição</label>
-                    <textarea class="form-control" id="descricao" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="grito-guerra" class="form-label">Grito de Guerra</label>
-                    <input type="text" class="form-control" id="grito-guerra">
-                </div>
-                <div class="mb-3">
-                    <label for="jogadores" class="form-label">Nome dos Jogadores (máximo 100)</label>
-                    <textarea class="form-control" id="jogadores" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Criar Time</button>
             </form>
         </div>
     </section>
